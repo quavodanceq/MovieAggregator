@@ -6,3 +6,16 @@
 //
 
 import Foundation
+import UIKit
+
+protocol MainViewInput {
+    
+}
+
+protocol MainViewOutput {
+    
+}
+
+class MainView: UIView {
+    
+}

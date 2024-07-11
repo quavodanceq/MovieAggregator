@@ -23,7 +23,8 @@ class MainScreenView: UIView, MainScreenViewInput {
     weak var output: MainScreenViewOutput?
     
     init() {
-        
+        super.init(frame: .zero)
+        backgroundColor = .green
     }
     
     required init?(coder: NSCoder) {
