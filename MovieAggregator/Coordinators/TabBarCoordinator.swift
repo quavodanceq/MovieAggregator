@@ -26,6 +26,7 @@ class MainTabBarCoordinator: Coordinator<Void, Void> {
     
     override func start(param: Void) {
         var mainScreenCoordinator = mainScreenCoordinatorAssembly()
+        self.mainScreenCoordinator = mainScreenCoordinator
         mainScreenCoordinator.initFinishFlow = { mainScreenModule in
             mainScreenModule.tabBarItem =  UITabBarItem(title: "Main", image: UIImage(systemName: "ipad"), tag: 0)
             self.tabBarController.addChild(mainScreenModule)

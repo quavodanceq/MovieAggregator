@@ -33,9 +33,9 @@ class MainScreenPresenter: UIViewController, MainScreenPresenterInput {
     }
     
     override func loadView() {
+        
         view = viewRef
         viewRef.output = self
-       
     }
     
     required init?(coder: NSCoder) {
