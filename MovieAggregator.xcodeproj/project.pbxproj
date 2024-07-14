@@ -18,6 +18,9 @@
 		640161DA2C428C5800BCF9D9 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161D92C428C5800BCF9D9 /* CustomTableViewCell.swift */; };
 		640161DC2C428D5C00BCF9D9 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161DB2C428D5C00BCF9D9 /* CustomCell.swift */; };
 		640161DE2C42906900BCF9D9 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161DD2C42906800BCF9D9 /* CustomTableView.swift */; };
+		640161E12C42B2BA00BCF9D9 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161E02C42B2BA00BCF9D9 /* Network.swift */; };
+		640161E42C43DB0C00BCF9D9 /* CGFloat + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161E32C43DB0C00BCF9D9 /* CGFloat + Extension.swift */; };
+		640161E62C43DB1E00BCF9D9 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161E52C43DB1E00BCF9D9 /* UIColor + Extension.swift */; };
 		647D46D02C3EB4B300071705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647D46CF2C3EB4B300071705 /* AppDelegate.swift */; };
 		647D46D22C3EB4B300071705 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647D46D12C3EB4B300071705 /* SceneDelegate.swift */; };
 		647D46D92C3EB4B500071705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 647D46D82C3EB4B500071705 /* Assets.xcassets */; };
@@ -56,6 +59,9 @@
 		640161D92C428C5800BCF9D9 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		640161DB2C428D5C00BCF9D9 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		640161DD2C42906800BCF9D9 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
+		640161E02C42B2BA00BCF9D9 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		640161E32C43DB0C00BCF9D9 /* CGFloat + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat + Extension.swift"; sourceTree = "<group>"; };
+		640161E52C43DB1E00BCF9D9 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		647D46CC2C3EB4B300071705 /* MovieAggregator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieAggregator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		647D46CF2C3EB4B300071705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		647D46D12C3EB4B300071705 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +130,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		640161DF2C42B2A000BCF9D9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				640161E02C42B2BA00BCF9D9 /* Network.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		640161E22C43DAEA00BCF9D9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				640161E32C43DB0C00BCF9D9 /* CGFloat + Extension.swift */,
+				640161E52C43DB1E00BCF9D9 /* UIColor + Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		647D46C32C3EB4B300071705 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				640161D52C3FF5E700BCF9D9 /* Application */,
+				640161DF2C42B2A000BCF9D9 /* Networking */,
+				640161E22C43DAEA00BCF9D9 /* Helpers */,
 				647D46FF2C3EB5A800071705 /* MainModule */,
 				640161C42C3FEFDE00BCF9D9 /* Coordinators */,
 				640161D82C428C3500BCF9D9 /* Views */,
@@ -316,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				640161E42C43DB0C00BCF9D9 /* CGFloat + Extension.swift in Sources */,
 				640161DE2C42906900BCF9D9 /* CustomTableView.swift in Sources */,
 				640161C62C3FEFF300BCF9D9 /* Coordinator.swift in Sources */,
 				647D46D02C3EB4B300071705 /* AppDelegate.swift in Sources */,
@@ -324,10 +350,12 @@
 				640161BF2C3FEF1400BCF9D9 /* MainScreenPresenter.swift in Sources */,
 				640161C02C3FEF1400BCF9D9 /* MainScreenAssembly.swift in Sources */,
 				640161C82C3FF18E00BCF9D9 /* MainScreenCoordinator.swift in Sources */,
+				640161E62C43DB1E00BCF9D9 /* UIColor + Extension.swift in Sources */,
 				640161C12C3FEF1400BCF9D9 /* MainScreenInteractor.swift in Sources */,
 				640161D72C3FF5FD00BCF9D9 /* AppAssembly.swift in Sources */,
 				640161CA2C3FF38300BCF9D9 /* TabBarCoordinator.swift in Sources */,
 				640161DC2C428D5C00BCF9D9 /* CustomCell.swift in Sources */,
+				640161E12C42B2BA00BCF9D9 /* Network.swift in Sources */,
 				640161C22C3FEF1400BCF9D9 /* MainScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,6 +24,8 @@ class MainScreenView: UIView, MainScreenViewInput {
     
     weak var output: MainScreenViewOutput?
     
+    var collectionViewContentOffsets: [Int: CGPoint] = [:]
+    
     private var tableView = UITableView()
     
     private var data = [["1","2","3","4"], ["5","6","7","8"], ["9","10","11","12"]]
@@ -50,8 +52,6 @@ class MainScreenView: UIView, MainScreenViewInput {
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .blue
-        data[1] = ["5","5","52"]
-        tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
     }
     
     private func setupConstrainst() {
@@ -82,8 +82,13 @@ extension MainScreenView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
+        cell.cellSection = indexPath.section
+        cell.delegate = self
         let data = data[indexPath.section]
         cell.configure(with: data)
+        if let savedContentOffset = collectionViewContentOffsets[indexPath.section] {
+                cell.collectionView.setContentOffset(savedContentOffset, animated: false)
+            }
         return cell
     }
     
@@ -97,7 +102,32 @@ extension MainScreenView: UITableViewDelegate, UITableViewDataSource {
         return self.frame.height / 3
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        
+    }
+    
+}
+
+extension MainScreenView: CustomCellDelegate {
+    
+    func didEndDisplayingLastItem(section: Int, page: Int) {
+        data[section].append(contentsOf: ["1","2","3","4","5"])
+        tableView.reloadSections(IndexSet(integer: section), with: .none)
+        
+    }
     
     
+    func didSelectItem(section: Int, row: Int) {
+        
+    }
+    
+    func collectionView(_ collectionView: Int, didScrollToContentOffset contentOffset: CGPoint) {
+        
+        
+        
+        collectionViewContentOffsets[collectionView] = contentOffset
+        
+        }
     
 }

@@ -9,8 +9,18 @@ import Foundation
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
+    
+    var cellSection: Int?
+    
+    private var currentPage: Int = 0
+    
+    var delegate: CustomCellDelegate?
+    
+    var offset: CGPoint = .zero
+    
+    
 
-    private let collectionView: UICollectionView
+    let collectionView: UICollectionView
     private var items: [String] = ["1","2","3","4"] // Replace with your data source
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -44,7 +54,6 @@ class CustomTableViewCell: UITableViewCell {
 }
 
 extension CustomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
@@ -62,5 +71,46 @@ extension CustomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
         let width = heidht / 1.7
         return CGSize(width: width, height: heidht )
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        
+        if indexPath.item == items.count - 1 {
+            //print(offset)
+            delegate?.didEndDisplayingLastItem(section: cellSection ?? 6666666, page: currentPage)
+        }
+        
+        
+    }
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        offset = scrollView.contentOffset
+        delegate?.collectionView(cellSection!, didScrollToContentOffset: scrollView.contentOffset)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        if indexPath.item == items.count - 1 {
+//            offset = collectionView.contentOffset
+//            //print(offset)
+//            delegate?.didEndDisplayingLastItem(section: cellSection ?? 6666666, page: currentPage)
+//        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectItem(section: cellSection ?? 666666, row: indexPath.row)
+    }
 }
+
+protocol CustomCellDelegate {
+    
+    func didSelectItem(section: Int, row: Int)
+    
+    func didEndDisplayingLastItem(section: Int, page: Int)
+    
+    func collectionView(_ collectionView: Int, didScrollToContentOffset contentOffset: CGPoint)
+    
+}
+
 

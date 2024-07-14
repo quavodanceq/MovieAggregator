@@ -10,7 +10,6 @@ import UIKit
 
 class CustomCell: UICollectionViewCell {
     
-    
     private let label = UILabel()
     
     override init(frame: CGRect) {
@@ -26,7 +25,7 @@ class CustomCell: UICollectionViewCell {
         setupLabel()
         setupConstraints()
         label.text = text
-        backgroundColor = .yellow
+        label.backgroundColor = .random()
     }
 
     
