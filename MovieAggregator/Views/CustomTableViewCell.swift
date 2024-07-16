@@ -12,7 +12,7 @@ class CustomTableViewCell: UITableViewCell {
     
     var cellSection: Int?
     
-    private var currentPage: Int = 0
+    private var currentPage: Int = 1
     
     var delegate: CustomCellDelegate?
     
@@ -21,7 +21,7 @@ class CustomTableViewCell: UITableViewCell {
     
 
     let collectionView: UICollectionView
-    private var items: [String] = ["1","2","3","4"] // Replace with your data source
+    private var items: [String] = ["1","2","3","4"] 
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         let layout = UICollectionViewFlowLayout()
@@ -49,6 +49,7 @@ class CustomTableViewCell: UITableViewCell {
     func configure(with items: [String]) {
         self.items = items
         collectionView.reloadData()
+        print(cellSection)
     }
     
 }
