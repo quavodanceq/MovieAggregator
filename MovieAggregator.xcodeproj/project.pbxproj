@@ -17,7 +17,6 @@
 		640161D72C3FF5FD00BCF9D9 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161D62C3FF5FD00BCF9D9 /* AppAssembly.swift */; };
 		640161DA2C428C5800BCF9D9 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161D92C428C5800BCF9D9 /* CustomTableViewCell.swift */; };
 		640161DC2C428D5C00BCF9D9 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161DB2C428D5C00BCF9D9 /* CustomCell.swift */; };
-		640161DE2C42906900BCF9D9 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161DD2C42906800BCF9D9 /* CustomTableView.swift */; };
 		640161E12C42B2BA00BCF9D9 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161E02C42B2BA00BCF9D9 /* Network.swift */; };
 		640161E42C43DB0C00BCF9D9 /* CGFloat + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161E32C43DB0C00BCF9D9 /* CGFloat + Extension.swift */; };
 		640161E62C43DB1E00BCF9D9 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161E52C43DB1E00BCF9D9 /* UIColor + Extension.swift */; };
@@ -60,7 +59,6 @@
 		640161D62C3FF5FD00BCF9D9 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		640161D92C428C5800BCF9D9 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		640161DB2C428D5C00BCF9D9 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
-		640161DD2C42906800BCF9D9 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
 		640161E02C42B2BA00BCF9D9 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		640161E32C43DB0C00BCF9D9 /* CGFloat + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat + Extension.swift"; sourceTree = "<group>"; };
 		640161E52C43DB1E00BCF9D9 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 			children = (
 				640161D92C428C5800BCF9D9 /* CustomTableViewCell.swift */,
 				640161DB2C428D5C00BCF9D9 /* CustomCell.swift */,
-				640161DD2C42906800BCF9D9 /* CustomTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,8 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				640161BB2C3FEF1400BCF9D9 /* MainScreenPresenter.swift */,
-				640161BC2C3FEF1400BCF9D9 /* MainScreenAssembly.swift */,
 				640161BD2C3FEF1400BCF9D9 /* MainScreenInteractor.swift */,
+				640161BC2C3FEF1400BCF9D9 /* MainScreenAssembly.swift */,
 				640161BE2C3FEF1400BCF9D9 /* MainScreenView.swift */,
 			);
 			path = MainModule;
@@ -356,7 +353,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				640161E42C43DB0C00BCF9D9 /* CGFloat + Extension.swift in Sources */,
-				640161DE2C42906900BCF9D9 /* CustomTableView.swift in Sources */,
 				640161C62C3FEFF300BCF9D9 /* Coordinator.swift in Sources */,
 				647D46D02C3EB4B300071705 /* AppDelegate.swift in Sources */,
 				640161DA2C428C5800BCF9D9 /* CustomTableViewCell.swift in Sources */,

@@ -94,8 +94,8 @@ enum Genre: String {
     }
     
     static func getId(by section: Int) -> Int {
+        
         switch section {
-        case 0:
             
         case 1:
             return 28
@@ -110,7 +110,7 @@ enum Genre: String {
         case 6:
             return 878
         default:
-            break
+            return 0
         }
     }
         

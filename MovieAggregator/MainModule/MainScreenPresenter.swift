@@ -38,6 +38,12 @@ class MainScreenPresenter: UIViewController, MainScreenPresenterInput {
         viewRef.output = self
     }
     
+    override func viewDidLoad() {
+        
+        interactor.fetchMovies(for: 6, page: 1)
+        
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -46,8 +52,24 @@ class MainScreenPresenter: UIViewController, MainScreenPresenterInput {
 
 extension MainScreenPresenter: MainScreenViewOutput {
     
+    func fetchMovies(for section: Int, page: Int) {
+        interactor.fetchMoviesForSection(section: section, page: page)
+    }
+    
 }
 
 extension MainScreenPresenter: MainScreenInteractorOutput {
+    
+    func moviesWasFetched(movies: [MovieSection]) {
+        viewRef.getMovies(movies: movies)
+    }
+    
+    
+    func moviesForSectionWasFetched(moviesSection: MovieSection) {
+        viewRef.getMoviesForSection(moviesSection: moviesSection)
+    }
+    
+    
+    
     
 }

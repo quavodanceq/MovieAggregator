@@ -20,11 +20,11 @@ class CustomCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(_ text: String) {
+    func setup(_ movie: Movie) {
         layer.borderColor = UIColor.black.cgColor
         setupLabel()
         setupConstraints()
-        label.text = text
+        label.text = movie.originalTitle
         label.backgroundColor = .random()
     }
 

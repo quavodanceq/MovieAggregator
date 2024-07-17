@@ -10,6 +10,8 @@ import UIKit
 
 protocol MainScreenViewOutput: AnyObject {
     
+    func fetchMovies(for section: Int, page: Int)
+    
 }
 
 protocol MainScreenViewInput {
@@ -18,9 +20,21 @@ protocol MainScreenViewInput {
     
     func setup()
     
+    func getMovies(movies : [MovieSection])
+    
+    func getMoviesForSection(moviesSection: MovieSection)
+    
 }
 
 class MainScreenView: UIView, MainScreenViewInput {
+    
+    
+    func getMoviesForSection(moviesSection: MovieSection) {
+        data[moviesSection.section] = moviesSection
+        tableView.reloadSections(IndexSet(integer: moviesSection.section), with: .automatic)
+    }
+    
+    
     
     weak var output: MainScreenViewOutput?
     
@@ -28,7 +42,7 @@ class MainScreenView: UIView, MainScreenViewInput {
     
     private var tableView = UITableView()
     
-    private var data = [["1","2","3","4"], ["5","6","7","8"], ["9","10","11","12"]]
+    private var data: [MovieSection] = []
     
     init() {
         super.init(frame: .zero)
@@ -66,6 +80,12 @@ class MainScreenView: UIView, MainScreenViewInput {
         ])
     }
     
+    func getMovies(movies : [MovieSection]) {
+        self.data = movies
+        self.tableView.reloadData()
+        
+    }
+    
 }
 
 extension MainScreenView: UITableViewDelegate, UITableViewDataSource {
@@ -85,7 +105,7 @@ extension MainScreenView: UITableViewDelegate, UITableViewDataSource {
         cell.cellSection = indexPath.section
         cell.delegate = self
         let data = data[indexPath.section]
-        cell.configure(with: data)
+        cell.configure(with: data.movies, page: data.currentPage)
         if let savedContentOffset = collectionViewContentOffsets[indexPath.section] {
                 cell.collectionView.setContentOffset(savedContentOffset, animated: false)
             }
@@ -112,8 +132,8 @@ extension MainScreenView: UITableViewDelegate, UITableViewDataSource {
 extension MainScreenView: CustomCellDelegate {
     
     func didEndDisplayingLastItem(section: Int, page: Int) {
-        data[section].append(contentsOf: ["1","2","3","4","5"])
-        tableView.reloadSections(IndexSet(integer: section), with: .none)
+        
+        output?.fetchMovies(for: section, page: page)
         
     }
     

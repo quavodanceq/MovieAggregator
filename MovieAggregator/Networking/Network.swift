@@ -41,7 +41,7 @@ class Network {
         
     }
     
-    func fetchByGenre(genreID: Int, page: Int) async {
+    func fetchByGenre(genreID: Int, page: Int) async -> MovieSection? {
         
         
 //        URLQueryItem(name: "language", value: "en-US"),
@@ -60,7 +60,7 @@ class Network {
           URLQueryItem(name: "sort_by", value: "vote_average.desc"),
         ]
         if genreID != 0 {
-            queryItems.append(URLQueryItem(name: "with_genres", value: "\(genreID)"))
+            queryItems.append(URLQueryItem(name: "with_genres", value: "\(Genre.getId(by: genreID))"))
         }
         
         components.queryItems = components.queryItems.map { $0 + queryItems } ?? queryItems
@@ -76,9 +76,12 @@ class Network {
         do {
             
             let (data, _) = try await URLSession.shared.data(for: request)
-            print(String(decoding: data, as: UTF8.self))
-        } catch {
+            let result = try? JSONDecoder().decode(Response.self, from: data)
+            let moviesSection = MovieSection(movies: result!.results, section: genreID, currentPage: page)
+            return moviesSection
             
+        } catch {
+            return nil
         }
     }
     

@@ -17,11 +17,9 @@ class CustomTableViewCell: UITableViewCell {
     var delegate: CustomCellDelegate?
     
     var offset: CGPoint = .zero
-    
-    
 
     let collectionView: UICollectionView
-    private var items: [String] = ["1","2","3","4"] 
+    private var data: [Movie] = []
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         let layout = UICollectionViewFlowLayout()
@@ -46,10 +44,10 @@ class CustomTableViewCell: UITableViewCell {
         collectionView.backgroundColor = .red
     }
 
-    func configure(with items: [String]) {
-        self.items = items
+    func configure(with items: [Movie], page: Int) {
+        self.data = items
+        self.currentPage = page
         collectionView.reloadData()
-        print(cellSection)
     }
     
 }
@@ -57,12 +55,12 @@ class CustomTableViewCell: UITableViewCell {
 extension CustomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return data.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
-        let item = items[indexPath.row]
+        let item = data[indexPath.row]
         cell.setup(item)
         return cell
     }
@@ -77,7 +75,7 @@ extension CustomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         
-        if indexPath.item == items.count - 1 {
+        if indexPath.item == data.count - 1 {
             //print(offset)
             delegate?.didEndDisplayingLastItem(section: cellSection ?? 6666666, page: currentPage)
         }
@@ -92,11 +90,10 @@ extension CustomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        if indexPath.item == items.count - 1 {
-//            offset = collectionView.contentOffset
-//            //print(offset)
-//            delegate?.didEndDisplayingLastItem(section: cellSection ?? 6666666, page: currentPage)
-//        }
+        if indexPath.item == data.count - 1 {
+            offset = collectionView.contentOffset
+            delegate?.didEndDisplayingLastItem(section: cellSection ?? 6666666, page: currentPage + 1)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -47,3 +47,13 @@ struct Movie: Codable {
         case voteCount = "vote_count"
     }
 }
+
+struct MovieSection {
+    
+    let movies: [Movie]
+    
+    let section: Int
+    
+    let currentPage: Int
+    
+}
