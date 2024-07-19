@@ -11,7 +11,7 @@ protocol MainScreenInteractorInput {
     
     var output: MainScreenInteractorOutput? { get set }
     
-    func fetchMovies(for sections: Int, page: Int)
+    func fetchMovies(for sections: ClosedRange<Int>, page: Int)
     
     func fetchMoviesForSection(section: Int, page: Int)
 }
@@ -24,12 +24,19 @@ protocol MainScreenInteractorOutput: AnyObject {
     
 }
 
+extension MainScreenInteractorInput {
+    func fetchMovies(for sections: ClosedRange<Int>) {
+        fetchMovies(for: sections, page: 1)
+    }
+}
+
 class MainScreenInteractor: MainScreenInteractorInput {
+    
     
     func fetchMoviesForSection(section: Int, page: Int) {
         
         Task {
-            guard let moviesSection = await Network.shared.fetchByGenre(genreID: Genre.getId(by: section), page: page) else { return }
+            guard let moviesSection = await Network.shared.fetchByGenre(genreID: section, page: page) else { return }
             DispatchQueue.main.async {
                 self.output?.moviesForSectionWasFetched(moviesSection: moviesSection)
             }
@@ -37,16 +44,18 @@ class MainScreenInteractor: MainScreenInteractorInput {
         }
         
         
+        
     }
     
-    func fetchMovies(for sections: Int, page: Int) {
+    
+    func fetchMovies(for sections: ClosedRange<Int>, page: Int = 1) {
         
         Task {
             let movies = await withTaskGroup(of: MovieSection?.self, body: { taskGroup -> [MovieSection] in
                 
                 var movies : [MovieSection] = []
                 
-                for section in 1...sections {
+                for section in sections {
                     taskGroup.addTask {
                         await Network.shared.fetchByGenre(genreID: section, page: page)
                     }
@@ -61,7 +70,9 @@ class MainScreenInteractor: MainScreenInteractorInput {
                     
                 }
                 
-                return movies
+                return movies.sorted {
+                    $0.section < $1.section
+                }
                 
             })
             

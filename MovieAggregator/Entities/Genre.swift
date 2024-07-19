@@ -40,7 +40,7 @@ enum Genre: String {
     
     case comedy = "Comedy"
     case action = "Action"
-    case documentary = "Documentary"
+    case crime = "Crime"
     case history = "History"
     case war = "War"
     case thriller = "Thriller"
@@ -76,8 +76,8 @@ enum Genre: String {
                 genres.append(.action)
             case 35:
                 genres.append(.comedy)
-            case 99:
-                genres.append(.documentary)
+            case 80:
+                genres.append(.crime)
             case 36:
                 genres.append(.history)
             case 10752:
@@ -102,7 +102,7 @@ enum Genre: String {
         case 2:
             return 35
         case 3:
-            return 99
+            return 80
         case 4:
             return 36
         case 5:

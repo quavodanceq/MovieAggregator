@@ -40,7 +40,7 @@ class MainScreenPresenter: UIViewController, MainScreenPresenterInput {
     
     override func viewDidLoad() {
         
-        interactor.fetchMovies(for: 6, page: 1)
+        interactor.fetchMovies(for: viewRef.sectionsRange)
         
     }
     
@@ -51,6 +51,10 @@ class MainScreenPresenter: UIViewController, MainScreenPresenterInput {
 }
 
 extension MainScreenPresenter: MainScreenViewOutput {
+    
+    func fetchMoviesSections(for sections: ClosedRange<Int>) {
+        interactor.fetchMovies(for: sections)
+    }
     
     func fetchMovies(for section: Int, page: Int) {
         interactor.fetchMoviesForSection(section: section, page: page)

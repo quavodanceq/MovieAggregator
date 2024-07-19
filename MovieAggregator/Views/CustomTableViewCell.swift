@@ -20,6 +20,7 @@ class CustomTableViewCell: UITableViewCell {
 
     let collectionView: UICollectionView
     private var data: [Movie] = []
+    
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         let layout = UICollectionViewFlowLayout()
@@ -74,10 +75,9 @@ extension CustomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        
         if indexPath.item == data.count - 1 {
-            //print(offset)
-            delegate?.didEndDisplayingLastItem(section: cellSection ?? 6666666, page: currentPage)
+            offset = collectionView.contentOffset
+            delegate?.didEndDisplayingLastItem(section: cellSection ?? 6666666, page: currentPage + 1)
         }
         
         
@@ -90,10 +90,8 @@ extension CustomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == data.count - 1 {
-            offset = collectionView.contentOffset
-            delegate?.didEndDisplayingLastItem(section: cellSection ?? 6666666, page: currentPage + 1)
-        }
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

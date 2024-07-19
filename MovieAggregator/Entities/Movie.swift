@@ -48,12 +48,16 @@ struct Movie: Codable {
     }
 }
 
+extension Movie: Equatable {
+    
+}
+
 struct MovieSection {
     
-    let movies: [Movie]
+    var movies: [Movie]
     
     let section: Int
     
-    let currentPage: Int
+    var currentPage: Int
     
 }

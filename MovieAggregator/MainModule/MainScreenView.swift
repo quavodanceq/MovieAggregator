@@ -10,7 +10,9 @@ import UIKit
 
 protocol MainScreenViewOutput: AnyObject {
     
-    func fetchMovies(for section: Int, page: Int)
+    func fetchMovies(for sections: Int, page: Int)
+    
+    func fetchMoviesSections(for sections: ClosedRange<Int>)
     
 }
 
@@ -24,13 +26,16 @@ protocol MainScreenViewInput {
     
     func getMoviesForSection(moviesSection: MovieSection)
     
+    var sectionsRange: ClosedRange<Int> { get }
+    
 }
 
 class MainScreenView: UIView, MainScreenViewInput {
     
     
     func getMoviesForSection(moviesSection: MovieSection) {
-        data[moviesSection.section] = moviesSection
+        data[moviesSection.section].movies.append(contentsOf: moviesSection.movies)
+        data[moviesSection.section].currentPage = moviesSection.currentPage
         tableView.reloadSections(IndexSet(integer: moviesSection.section), with: .automatic)
     }
     
@@ -43,6 +48,12 @@ class MainScreenView: UIView, MainScreenViewInput {
     private var tableView = UITableView()
     
     private var data: [MovieSection] = []
+    
+    private var firstSectionIndex: Int = 0
+    
+    var sectionsRange: ClosedRange<Int> {
+        firstSectionIndex...firstSectionIndex + 5
+    }
     
     init() {
         super.init(frame: .zero)
@@ -61,6 +72,7 @@ class MainScreenView: UIView, MainScreenViewInput {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         addSubview(tableView)
         backgroundColor = .orange
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
@@ -83,7 +95,6 @@ class MainScreenView: UIView, MainScreenViewInput {
     func getMovies(movies : [MovieSection]) {
         self.data = movies
         self.tableView.reloadData()
-        
     }
     
 }
@@ -124,8 +135,13 @@ extension MainScreenView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        
+        if indexPath.section == data.count - 1 {
+            firstSectionIndex += 5
+            output?.fetchMoviesSections(for: sectionsRange)
+        }
     }
+    
+    
     
 }
 
