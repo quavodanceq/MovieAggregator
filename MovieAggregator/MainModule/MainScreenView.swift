@@ -52,7 +52,7 @@ class MainScreenView: UIView, MainScreenViewInput {
     private var firstSectionIndex: Int = 0
     
     var sectionsRange: ClosedRange<Int> {
-        firstSectionIndex...firstSectionIndex + 5
+        firstSectionIndex...firstSectionIndex + 4
     }
     
     init() {
@@ -93,7 +93,7 @@ class MainScreenView: UIView, MainScreenViewInput {
     }
     
     func getMovies(movies : [MovieSection]) {
-        self.data = movies
+        self.data.append(contentsOf: movies)
         self.tableView.reloadData()
     }
     
@@ -140,7 +140,6 @@ extension MainScreenView: UITableViewDelegate, UITableViewDataSource {
             output?.fetchMoviesSections(for: sectionsRange)
         }
     }
-    
     
     
 }

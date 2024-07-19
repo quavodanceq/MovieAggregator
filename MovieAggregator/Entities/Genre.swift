@@ -109,6 +109,24 @@ enum Genre: String {
             return 10752
         case 6:
             return 878
+        case 7:
+            return 10751
+        case 8:
+            return 878
+        case 9:
+            return 878
+        case 10:
+            return 878
+        case 11:
+            return 878
+        case 12:
+            return 878
+        case 13:
+            return 878
+        case 14:
+            return 878
+        case 15:
+            return 878
         default:
             return 0
         }
