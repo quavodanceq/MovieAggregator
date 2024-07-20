@@ -17,4 +17,7 @@ extension UIColor {
            alpha: 1.0
         )
     }
+    
+    static let customGreem = UIColor.init(red: 59/255, green: 179/255, blue: 59/255, alpha: 1)
+    static let customGray = UIColor.init(red: 119/255, green: 119/255, blue: 119/255, alpha: 1)
 }

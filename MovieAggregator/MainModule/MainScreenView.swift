@@ -73,11 +73,11 @@ class MainScreenView: UIView, MainScreenViewInput {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        tableView.backgroundColor = .black
         addSubview(tableView)
         backgroundColor = .orange
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .blue
     }
     
     private func setupConstrainst() {
@@ -95,6 +95,7 @@ class MainScreenView: UIView, MainScreenViewInput {
     func getMovies(movies : [MovieSection]) {
         self.data.append(contentsOf: movies)
         self.tableView.reloadData()
+        self.tableView.layoutIfNeeded()
     }
     
 }
@@ -114,12 +115,13 @@ extension MainScreenView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
         cell.cellSection = indexPath.section
-        cell.delegate = self
         let data = data[indexPath.section]
         cell.configure(with: data.movies, page: data.currentPage)
         if let savedContentOffset = collectionViewContentOffsets[indexPath.section] {
-                cell.collectionView.setContentOffset(savedContentOffset, animated: false)
+//                cell.collectionView.setContentOffset(savedContentOffset, animated: false)
+                cell.offset = savedContentOffset
             }
+        cell.delegate = self
         return cell
     }
     
@@ -130,7 +132,7 @@ extension MainScreenView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.frame.height / 3
+        return self.frame.height / 2.7
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -163,6 +165,10 @@ extension MainScreenView: CustomCellDelegate {
         
         collectionViewContentOffsets[collectionView] = contentOffset
         
+        print(collectionViewContentOffsets[collectionView]?.x)
+        
         }
+    
+        
     
 }

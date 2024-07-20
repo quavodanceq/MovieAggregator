@@ -27,7 +27,7 @@ class CustomTableViewCell: UITableViewCell {
         layout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+        collectionView.backgroundColor = .black
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: "CustomCell")
@@ -39,16 +39,17 @@ class CustomTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func layoutSubviews() {
+     override func layoutSubviews() {
         super.layoutSubviews()
         collectionView.frame = contentView.frame
-        collectionView.backgroundColor = .red
+        collectionView.reloadData()
+        collectionView.contentOffset = offset
     }
+    
 
     func configure(with items: [Movie], page: Int) {
         self.data = items
         self.currentPage = page
-        collectionView.reloadData()
     }
     
 }
@@ -75,22 +76,18 @@ extension CustomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
+        
         if indexPath.item == data.count - 1 {
-            offset = collectionView.contentOffset
             delegate?.didEndDisplayingLastItem(section: cellSection ?? 6666666, page: currentPage + 1)
         }
         
         
     }
     
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        offset = scrollView.contentOffset
-        delegate?.collectionView(cellSection!, didScrollToContentOffset: scrollView.contentOffset)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
+        if scrollView.contentOffset != .zero {
+            delegate?.collectionView(cellSection!, didScrollToContentOffset: scrollView.contentOffset)
+        }
         
     }
     
