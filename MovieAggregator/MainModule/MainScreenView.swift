@@ -10,9 +10,9 @@ import UIKit
 
 protocol MainScreenViewOutput: AnyObject {
     
-    func fetchMovies(for sections: Int, page: Int)
+    func didScrollToEnd(of section: Int, page: Int)
     
-    func fetchMoviesSections(for sections: ClosedRange<Int>)
+    func didScrollToEndOfTableView(sectionsRange sections: ClosedRange<Int>)
     
 }
 
@@ -22,9 +22,9 @@ protocol MainScreenViewInput {
     
     func setup()
     
-    func getMovies(movies : [MovieSection])
+    func displayMovieSections(movies : [MovieSection])
     
-    func getMoviesForSection(moviesSection: MovieSection)
+    func displayMoviesFor(moviesSection: MovieSection)
     
     var sectionsRange: ClosedRange<Int> { get }
     
@@ -33,7 +33,7 @@ protocol MainScreenViewInput {
 class MainScreenView: UIView, MainScreenViewInput {
     
     
-    func getMoviesForSection(moviesSection: MovieSection) {
+    func displayMoviesFor(moviesSection: MovieSection) {
         data[moviesSection.section].movies.append(contentsOf: moviesSection.movies)
         data[moviesSection.section].currentPage = moviesSection.currentPage
         tableView.reloadSections(IndexSet(integer: moviesSection.section), with: .automatic)
@@ -92,7 +92,7 @@ class MainScreenView: UIView, MainScreenViewInput {
         ])
     }
     
-    func getMovies(movies : [MovieSection]) {
+    func displayMovieSections(movies : [MovieSection]) {
         self.data.append(contentsOf: movies)
         self.tableView.reloadData()
         self.tableView.layoutIfNeeded()
@@ -139,7 +139,7 @@ extension MainScreenView: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == data.count - 1 {
             firstSectionIndex += 5
-            output?.fetchMoviesSections(for: sectionsRange)
+            output?.didScrollToEndOfTableView(sectionsRange: sectionsRange)
         }
     }
     
@@ -150,7 +150,7 @@ extension MainScreenView: CustomCellDelegate {
     
     func didEndDisplayingLastItem(section: Int, page: Int) {
         
-        output?.fetchMovies(for: section, page: page)
+        output?.didScrollToEnd(of: section, page: page)
         
     }
     

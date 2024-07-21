@@ -624,7 +624,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
             endingLineNumber = "95"
-            landmarkName = "getMovies(movies:)"
+            landmarkName = "displayMovieSections(movies:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -656,7 +656,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
-            landmarkName = "fetchMovies(for:page:)"
+            landmarkName = "didScrollToEnd(of:page:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -752,7 +752,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "fetchMovies(for:page:)"
+            landmarkName = "didScrollToEnd(of:page:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -800,7 +800,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
             endingLineNumber = "36"
-            landmarkName = "getMoviesForSection(moviesSection:)"
+            landmarkName = "displayMoviesFor(moviesSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -944,7 +944,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
             endingLineNumber = "55"
-            landmarkName = "fetchMoviesSections(for:)"
+            landmarkName = "didScrollToEndOfTableView(sectionsRange:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -976,7 +976,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
             endingLineNumber = "97"
-            landmarkName = "getMovies(movies:)"
+            landmarkName = "displayMovieSections(movies:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

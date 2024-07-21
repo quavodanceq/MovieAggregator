@@ -52,11 +52,11 @@ class MainScreenPresenter: UIViewController, MainScreenPresenterInput {
 
 extension MainScreenPresenter: MainScreenViewOutput {
     
-    func fetchMoviesSections(for sections: ClosedRange<Int>) {
+    func didScrollToEndOfTableView(sectionsRange sections: ClosedRange<Int>) {
         interactor.fetchMovies(for: sections)
     }
     
-    func fetchMovies(for section: Int, page: Int) {
+    func didScrollToEnd(of section: Int, page: Int) {
         interactor.fetchMoviesForSection(section: section, page: page)
     }
     
@@ -65,12 +65,12 @@ extension MainScreenPresenter: MainScreenViewOutput {
 extension MainScreenPresenter: MainScreenInteractorOutput {
     
     func moviesWasFetched(movies: [MovieSection]) {
-        viewRef.getMovies(movies: movies)
+        viewRef.displayMovieSections(movies: movies)
     }
     
     
     func moviesForSectionWasFetched(moviesSection: MovieSection) {
-        viewRef.getMoviesForSection(moviesSection: moviesSection)
+        viewRef.displayMoviesFor(moviesSection: moviesSection)
     }
     
     
