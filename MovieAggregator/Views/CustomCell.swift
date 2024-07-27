@@ -32,12 +32,12 @@ class CustomCell: UICollectionViewCell {
         self.movie = movie
         setupImageView()
         setupVotesLabel()
-        setuptitleLabel()
+        setupTitleLabel()
         setupConstraints()
     }
 
     
-    private func setuptitleLabel() {
+    private func setupTitleLabel() {
         
         addSubview(titleLabel)
         titleLabel.text = movie?.originalTitle

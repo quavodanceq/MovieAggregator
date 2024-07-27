@@ -14,6 +14,8 @@ protocol MainScreenInteractorInput {
     func fetchMovies(for sections: ClosedRange<Int>, page: Int)
     
     func fetchMoviesForSection(section: Int, page: Int)
+    
+    func fetchTrendingMovie()
 }
 
 protocol MainScreenInteractorOutput: AnyObject {
@@ -21,6 +23,8 @@ protocol MainScreenInteractorOutput: AnyObject {
     func moviesWasFetched(movies: [MovieSection])
     
     func moviesForSectionWasFetched(moviesSection: MovieSection)
+    
+    func trendingMovieWasFetched(movie: Movie)
     
 }
 
@@ -31,6 +35,17 @@ extension MainScreenInteractorInput {
 }
 
 class MainScreenInteractor: MainScreenInteractorInput {
+    
+    func fetchTrendingMovie() {
+        Task {
+            guard let movie = await Network.shared.fetchTrending() else { return }
+            DispatchQueue.main.async {
+                self.output?.trendingMovieWasFetched(movie: movie)
+            }
+            
+        }
+    }
+    
     
     
     func fetchMoviesForSection(section: Int, page: Int) {

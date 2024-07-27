@@ -21,4 +21,14 @@ enum APIs {
         
     }
     
+    enum Movie: API {
+        
+        static let baseURL: URL = URL(string: "https://api.themoviedb.org/3/discover/movie")!
+        
+        static let topRated: URL = URL(string: "https://api.themoviedb.org/3/movie/top_rated")!
+        
+        static let trending: URL = URL(string: "https://api.themoviedb.org/3/movie/popular")!
+        
+    }
+    
 }

@@ -12,6 +12,8 @@ class CustomTableViewCell: UITableViewCell {
     
     var cellSection: Int?
     
+    private let label = UILabel()
+    
     private var currentPage: Int = 1
     
     var delegate: CustomCellDelegate?
@@ -44,6 +46,14 @@ class CustomTableViewCell: UITableViewCell {
         collectionView.frame = contentView.frame
         collectionView.reloadData()
         collectionView.contentOffset = offset
+         label.text = String(cellSection ?? 0)
+         label.textColor = .white
+         contentView.addSubview(label)
+         label.translatesAutoresizingMaskIntoConstraints = false
+         NSLayoutConstraint.activate([
+         
+            label.bottomAnchor.constraint(equalTo: self.topAnchor)
+         ])
     }
     
 

@@ -41,6 +41,7 @@ class MainScreenPresenter: UIViewController, MainScreenPresenterInput {
     override func viewDidLoad() {
         
         interactor.fetchMovies(for: viewRef.sectionsRange)
+        interactor.fetchTrendingMovie()
         
     }
     
@@ -71,6 +72,10 @@ extension MainScreenPresenter: MainScreenInteractorOutput {
     
     func moviesForSectionWasFetched(moviesSection: MovieSection) {
         viewRef.displayMoviesFor(moviesSection: moviesSection)
+    }
+    
+    func trendingMovieWasFetched(movie: Movie) {
+        viewRef.displayTrendingMovie(movie: movie)
     }
     
     

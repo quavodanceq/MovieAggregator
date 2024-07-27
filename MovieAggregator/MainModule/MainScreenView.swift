@@ -26,6 +26,8 @@ protocol MainScreenViewInput {
     
     func displayMoviesFor(moviesSection: MovieSection)
     
+    func displayTrendingMovie(movie: Movie)
+    
     var sectionsRange: ClosedRange<Int> { get }
     
 }
@@ -33,17 +35,23 @@ protocol MainScreenViewInput {
 class MainScreenView: UIView, MainScreenViewInput {
     
     
+    
+    
+    func displayTrendingMovie(movie: Movie) {
+        movieView.setup(movie)
+    }
+    
     func displayMoviesFor(moviesSection: MovieSection) {
         data[moviesSection.section].movies.append(contentsOf: moviesSection.movies)
         data[moviesSection.section].currentPage = moviesSection.currentPage
         tableView.reloadSections(IndexSet(integer: moviesSection.section), with: .automatic)
     }
     
-    
-    
     weak var output: MainScreenViewOutput?
     
     var collectionViewContentOffsets: [Int: CGPoint] = [:]
+    
+    private let movieView = MovieView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3))
     
     private var tableView = UITableView()
     
@@ -73,22 +81,22 @@ class MainScreenView: UIView, MainScreenViewInput {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-        tableView.backgroundColor = .black
         addSubview(tableView)
-        backgroundColor = .orange
+        tableView.backgroundColor = .black
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
+        tableView.tableHeaderView = movieView
         tableView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setupConstrainst() {
         
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+       
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
@@ -118,17 +126,11 @@ extension MainScreenView: UITableViewDelegate, UITableViewDataSource {
         let data = data[indexPath.section]
         cell.configure(with: data.movies, page: data.currentPage)
         if let savedContentOffset = collectionViewContentOffsets[indexPath.section] {
-//                cell.collectionView.setContentOffset(savedContentOffset, animated: false)
-                cell.offset = savedContentOffset
-            }
+            //                cell.collectionView.setContentOffset(savedContentOffset, animated: false)
+            cell.offset = savedContentOffset
+        }
         cell.delegate = self
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let label = UILabel()
-        label.text = "123"
-      
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
