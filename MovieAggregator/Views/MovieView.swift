@@ -18,7 +18,7 @@ class MovieView: UIView {
     
     private let overviewLabel = UILabel()
     
-    private let watchButton = UIButton()
+    private let playButton = PlayButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,20 +29,21 @@ class MovieView: UIView {
     }
     
     func setup(_ movie: Movie) {
-        backgroundColor = .black
         self.movie = movie
+        backgroundColor = .black
         setupImageView()
         setupOverviewLabel()
+        setupWatchButton()
         setupConstraints()
-        var baseURL = APIs.Image.baseURL
-        baseURL.append(path: movie.backdropPath)
-        imageView.sd_setImage(with: baseURL)
-        self.overviewLabel.text = movie.overview
     }
     
     func setupImageView() {
         addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        var baseURL = APIs.Image.baseURL
+        guard let path = movie?.backdropPath else { return }
+        baseURL.append(path: path)
+        imageView.sd_setImage(with: baseURL)
     }
     
     func setupOverviewLabel() {
@@ -50,12 +51,14 @@ class MovieView: UIView {
         overviewLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 17)
         overviewLabel.textColor = .white
         overviewLabel.textAlignment = .center
+        self.overviewLabel.text = movie?.overview ?? ""
         addSubview(overviewLabel)
         overviewLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setupWatchButton() {
-        
+        addSubview(playButton)
+        playButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setupConstraints() {
@@ -72,7 +75,14 @@ class MovieView: UIView {
             overviewLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
             overviewLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             overviewLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            //overviewLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+            
+        ])
+        
+        NSLayoutConstraint.activate([
+            playButton.topAnchor.constraint(equalTo: overviewLabel.bottomAnchor, constant: 10),
+            playButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.35),
+            playButton.heightAnchor.constraint(equalTo: playButton.widthAnchor, multiplier: 0.25),
+            playButton.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
     }
