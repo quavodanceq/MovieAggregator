@@ -41,30 +41,49 @@ class CustomTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-     override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
         collectionView.frame = contentView.frame
         collectionView.reloadData()
         collectionView.contentOffset = offset
-         label.text = String(cellSection ?? 0)
-         label.textColor = .white
-         contentView.addSubview(label)
-         label.translatesAutoresizingMaskIntoConstraints = false
-         NSLayoutConstraint.activate([
-         
-            label.bottomAnchor.constraint(equalTo: self.topAnchor)
-         ])
+        
+        
     }
-    
 
     func configure(with items: [Movie], page: Int) {
         self.data = items
         self.currentPage = page
+        label.text = "\(Genre.getGenre(by: cellSection ?? 1).rawValue)"
+        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20)
+        label.textColor = .white
+        contentView.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+                    label.topAnchor.constraint(equalTo: contentView.topAnchor),
+                    label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+                   
+                ])
     }
+    
+    
     
 }
 
 extension CustomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        if kind == UICollectionView.elementKindSectionHeader {
+//            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
+//            return header
+//            
+//        }
+//        return UICollectionReusableView()
+//    }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        return CGSize(width: 50, height: collectionView.bounds.height)
+//    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
@@ -78,7 +97,7 @@ extension CustomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let heidht = collectionView.frame.height
+        let heidht = collectionView.frame.height - label.frame.height * 2
         let width = heidht / 1.7
         return CGSize(width: width, height: heidht )
     }
@@ -103,6 +122,10 @@ extension CustomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.didSelectItem(section: cellSection ?? 666666, row: indexPath.row)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        UIEdgeInsets(top: label.frame.height, left: 0, bottom: 0, right: 0)
     }
 }
 

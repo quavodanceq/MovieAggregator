@@ -93,6 +93,49 @@ enum Genre: String {
         
     }
     
+    static func getGenre(by section: Int) -> Genre{
+        
+//        Action          28
+//        Adventure       12
+//        Animation       16
+//        Comedy          35
+//        Crime           80
+//        Documentary     99
+//        Drama           18
+//        Family          10751
+//        Fantasy         14
+//        History         36
+//        Horror          27
+//        Music           10402
+//        Mystery         9648
+//        Romance         10749
+//        Science Fiction 878
+//        TV Movie        10770
+//        Thriller        53
+//        War             10752
+//        Western         37
+        
+        
+            switch section {
+            case 1:
+               return .action
+            case 2:
+                return .comedy
+            case 3:
+                return .crime
+            case 4:
+                return .history
+            case 5:
+                return .war
+            case 6:
+                return .scienceFiction
+            default:
+                return .action
+            }
+        
+        
+    }
+    
     static func getId(by section: Int) -> Int {
         
         switch section {

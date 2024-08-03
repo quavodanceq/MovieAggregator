@@ -48,6 +48,8 @@ class MovieView: UIView {
     
     func setupOverviewLabel() {
         overviewLabel.numberOfLines = 0
+        overviewLabel.lineBreakMode = .byWordWrapping
+        overviewLabel.sizeToFit()
         overviewLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 17)
         overviewLabel.textColor = .white
         overviewLabel.textAlignment = .center
@@ -82,7 +84,8 @@ class MovieView: UIView {
             playButton.topAnchor.constraint(equalTo: overviewLabel.bottomAnchor, constant: 10),
             playButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.35),
             playButton.heightAnchor.constraint(equalTo: playButton.widthAnchor, multiplier: 0.25),
-            playButton.centerXAnchor.constraint(equalTo: centerXAnchor)
+            playButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            playButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
         
     }

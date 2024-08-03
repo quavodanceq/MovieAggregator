@@ -80,7 +80,6 @@ class MainScreenView: UIView, MainScreenViewInput {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         addSubview(tableView)
         tableView.backgroundColor = .black
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
@@ -118,6 +117,8 @@ extension MainScreenView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    
+    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
