@@ -107,4 +107,16 @@ class Network {
         }
     }
     
+    func getTrailerLink(for id: Int) async {
+        guard let url = URL(string: "https://api.kinocheck.de/movies?tmdb_id=\(id)") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        do {
+            let (data, _) = try await URLSession.shared.data(for: request)
+            print(data)
+        } catch {
+            
+        }
+    }
+    
 }

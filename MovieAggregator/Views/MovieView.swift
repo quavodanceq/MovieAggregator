@@ -30,7 +30,6 @@ class MovieView: UIView {
     
     func setup(_ movie: Movie) {
         self.movie = movie
-        backgroundColor = .black
         setupImageView()
         setupOverviewLabel()
         setupWatchButton()

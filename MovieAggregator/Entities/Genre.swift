@@ -45,6 +45,7 @@ enum Genre: String {
     case war = "War"
     case thriller = "Thriller"
     case scienceFiction = "Science Fiction"
+    case popular = "Popular movies"
     
     static func getGenres(by ids: [Int]) -> [Genre]{
         
@@ -117,6 +118,9 @@ enum Genre: String {
         
         
             switch section {
+            
+            case 0:
+                return .popular
             case 1:
                return .action
             case 2:

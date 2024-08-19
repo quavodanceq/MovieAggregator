@@ -60,9 +60,8 @@ class CustomTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-                    label.topAnchor.constraint(equalTo: contentView.topAnchor),
+                    label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
                     label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-                   
                 ])
     }
     
