@@ -13,7 +13,9 @@ class AppAssembly {
     static func assembly(window: UIWindow) -> Coordinator<Void, Void> {
         
         MainTabBarCoordinator(window: window) {
-            MainScreenCoordinator(moduleAssembly: MainScreenAssembly.assembly)
+            MainScreenCoordinator(moduleAssembly: MainScreenAssembly.assembly, movieInfoCoordinatorAssembly: { root in
+                return MovieInfoCoordinator(moduleAssembly: MovieInfoAssembly.assembly, initialController: root)
+            })
         }
         
     }

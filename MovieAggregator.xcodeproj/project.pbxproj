@@ -41,6 +41,7 @@
 		64C7F6112C4BD8A700491241 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 64C7F6102C4BD8A700491241 /* SDWebImage */; };
 		64C7F6132C4BDAB700491241 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7F6122C4BDAB700491241 /* Endpoint.swift */; };
 		64C7F6152C4C1F4B00491241 /* Paddinglabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7F6142C4C1F4B00491241 /* Paddinglabel.swift */; };
+		64FEB23D2C7380F000A65171 /* MovieInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FEB23C2C7380F000A65171 /* MovieInfoCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		647D46F22C3EB4B500071705 /* MovieAggregatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAggregatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		64C7F6122C4BDAB700491241 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		64C7F6142C4C1F4B00491241 /* Paddinglabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paddinglabel.swift; sourceTree = "<group>"; };
+		64FEB23C2C7380F000A65171 /* MovieInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				640161C52C3FEFF300BCF9D9 /* Coordinator.swift */,
 				640161C92C3FF38300BCF9D9 /* TabBarCoordinator.swift */,
 				640161C72C3FF18E00BCF9D9 /* MainScreenCoordinator.swift */,
+				64FEB23C2C7380F000A65171 /* MovieInfoCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				64C7F6152C4C1F4B00491241 /* Paddinglabel.swift in Sources */,
 				640161BF2C3FEF1400BCF9D9 /* MainScreenPresenter.swift in Sources */,
 				6472C3542C54DF0000834A73 /* PlayButton.swift in Sources */,
+				64FEB23D2C7380F000A65171 /* MovieInfoCoordinator.swift in Sources */,
 				640161C02C3FEF1400BCF9D9 /* MainScreenAssembly.swift in Sources */,
 				640161C82C3FF18E00BCF9D9 /* MainScreenCoordinator.swift in Sources */,
 				640161EB2C46CB4400BCF9D9 /* Genre.swift in Sources */,

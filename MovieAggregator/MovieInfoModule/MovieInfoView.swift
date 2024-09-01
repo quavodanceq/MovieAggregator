@@ -16,9 +16,17 @@ protocol MovieInfoViewInput {
     
     var output: MovieInfoViewOutput? { get set }
     
+    func presentMovie(movie: Movie)
+    
 }
 
 class MovieInfoView: UIView, MovieInfoViewInput {
+    
+    func presentMovie(movie: Movie) {
+        self.movie = movie
+        genreLabel.text = movie.title
+    }
+    
     
     weak var output: MovieInfoViewOutput?
     
@@ -59,6 +67,7 @@ class MovieInfoView: UIView, MovieInfoViewInput {
     }
     
     private func setup() {
+        backgroundColor = .white
         addSubview(imageView)
         addSubview(votesLabel)
         addSubview(genreLabel)

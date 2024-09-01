@@ -16,6 +16,8 @@ protocol MainScreenPresenterInput {
 
 protocol MainScreenPresenterOutput: AnyObject {
     
+    func presentMovieInfo(with movie: Movie)
+    
 }
 
 class MainScreenPresenter: UIViewController, MainScreenPresenterInput {
@@ -52,6 +54,14 @@ class MainScreenPresenter: UIViewController, MainScreenPresenterInput {
 }
 
 extension MainScreenPresenter: MainScreenViewOutput {
+    func didSelectMovie(movie: Movie) {
+        output?.presentMovieInfo(with: movie)
+    }
+    
+    
+    func didSelectMovie(section: Int, row: Int) {
+            }
+    
     
     func didScrollToEndOfTableView(sectionsRange sections: ClosedRange<Int>) {
         interactor.fetchMovies(for: sections)

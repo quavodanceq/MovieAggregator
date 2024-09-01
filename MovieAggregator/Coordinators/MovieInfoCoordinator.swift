@@ -8,22 +8,28 @@
 import Foundation
 import UIKit
 
-class MovieInfoCoordinator: Coordinator <Void, Void> {
+class MovieInfoCoordinator: Coordinator <Movie, Void> {
     
     private var module: (UIViewController & MovieInfoPresenterInput)?
     
     private let moduleAssembly: () -> UIViewController & MovieInfoPresenterInput
     
-    init(moduleAssembly: @escaping () -> UIViewController & MovieInfoPresenterInput) {
+    private let initialController: UIViewController
+    
+    var movie: Movie?
+    
+    init(moduleAssembly: @escaping () -> UIViewController & MovieInfoPresenterInput, initialController: UIViewController) {
         self.moduleAssembly = moduleAssembly
+        self.initialController = initialController
     }
     
-    override func start(param: Void) {
+    override func start(param: Movie) {
         var module = moduleAssembly()
         module.output = self
         self.module = module
+        module.movieToPresent(movie: param)
+        initialController.present(module, animated: true)
     }
-    
     
     
     

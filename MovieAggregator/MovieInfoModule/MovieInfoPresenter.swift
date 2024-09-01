@@ -12,6 +12,8 @@ protocol MovieInfoPresenterInput {
     
     var output: MovieInfoPresenterOutput? { get set }
     
+    func movieToPresent(movie: Movie)
+    
 }
 
 protocol MovieInfoPresenterOutput: AnyObject {
@@ -19,6 +21,11 @@ protocol MovieInfoPresenterOutput: AnyObject {
 }
 
 class MovieInfoPresenter: UIViewController, MovieInfoPresenterInput {
+    
+    func movieToPresent(movie: Movie) {
+        viewRef.presentMovie(movie: movie)
+    }
+    
     
     weak var output: MovieInfoPresenterOutput?
     

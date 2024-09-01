@@ -14,6 +14,8 @@ protocol MainScreenViewOutput: AnyObject {
     
     func didScrollToEndOfTableView(sectionsRange sections: ClosedRange<Int>)
     
+    func didSelectMovie(movie: Movie)
+    
 }
 
 protocol MainScreenViewInput {
@@ -159,7 +161,8 @@ extension MainScreenView: CustomCellDelegate {
     
     
     func didSelectItem(section: Int, row: Int) {
-        
+        let movie: Movie = data[section].movies[row]
+        output?.didSelectMovie(movie: movie)
     }
     
     func collectionView(_ collectionView: Int, didScrollToContentOffset contentOffset: CGPoint) {
