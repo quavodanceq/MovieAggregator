@@ -181,4 +181,18 @@ enum Genre: String {
         
 }
 
+extension [Genre] {
+    
+    func stringRep() -> String {
+        var str = String()
+        for i in self {
+            str.append("\(i.rawValue) ")
+        }
+        var replaced = str.replacingOccurrences(of: " ", with: ",")
+        replaced.removeLast()
+        return replaced
+    }
+    
+}
+
 
