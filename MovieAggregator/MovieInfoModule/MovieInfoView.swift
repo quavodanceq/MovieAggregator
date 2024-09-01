@@ -24,7 +24,10 @@ class MovieInfoView: UIView, MovieInfoViewInput {
     
     func presentMovie(movie: Movie) {
         self.movie = movie
-        genreLabel.text = movie.title
+        titleLabel.text = movie.title
+        let genres = Genre.getGenres(by: movie.genreIDS)
+        genreLabel.text = movie.backdropPath
+        imageView.sd_setImage(with: URL(string: "\(APIs.Image.baseURL)\(movie.posterPath)"))
     }
     
     
@@ -36,6 +39,16 @@ class MovieInfoView: UIView, MovieInfoViewInput {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
+    }()
+    
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 30)
+        label.textAlignment = .center
+        label.textColor = .white
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     private lazy var votesLabel: UILabel = {
@@ -67,18 +80,33 @@ class MovieInfoView: UIView, MovieInfoViewInput {
     }
     
     private func setup() {
-        backgroundColor = .white
+        backgroundColor = .black
         addSubview(imageView)
+        addSubview(titleLabel)
         addSubview(votesLabel)
         addSubview(genreLabel)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25)
+            imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35),
+            imageView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            genreLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            genreLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            genreLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            genreLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
         ])
     }
     

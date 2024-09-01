@@ -44,7 +44,6 @@ class MainScreenPresenter: UIViewController, MainScreenPresenterInput {
         
         interactor.fetchMovies(for: viewRef.sectionsRange)
         interactor.fetchTrendingMovie()
-        
     }
     
     required init?(coder: NSCoder) {

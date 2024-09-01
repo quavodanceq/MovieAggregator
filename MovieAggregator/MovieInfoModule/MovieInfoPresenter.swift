@@ -42,7 +42,7 @@ class MovieInfoPresenter: UIViewController, MovieInfoPresenterInput {
     override func loadView() {
         view = viewRef
         viewRef.output = self
-       
+        modalPresentationStyle = .fullScreen
     }
     
     required init?(coder: NSCoder) {
