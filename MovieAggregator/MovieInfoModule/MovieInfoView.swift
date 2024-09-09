@@ -117,6 +117,13 @@ class MovieInfoView: UIView, MovieInfoViewInput {
         return label
     }()
     
+    private lazy var playButton: PlayButton = {
+        let playButton = PlayButton()
+        playButton.translatesAutoresizingMaskIntoConstraints = false
+        playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        return playButton
+    }()
+    
     private lazy var overviewLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.customFont(.appleSDGothicNeo, .bold, size: 17)
@@ -147,6 +154,7 @@ class MovieInfoView: UIView, MovieInfoViewInput {
         scrollView.addSubview(votesLabel)
         scrollView.addSubview(genreLabel)
         scrollView.addSubview(countryLabel)
+        scrollView.addSubview(playButton)
         scrollView.addSubview(overviewLabel)
     }
     
@@ -204,17 +212,23 @@ class MovieInfoView: UIView, MovieInfoViewInput {
             countryLabel.trailingAnchor.constraint(equalTo: cView.trailingAnchor),
             countryLabel.centerXAnchor.constraint(equalTo: cView.centerXAnchor)
         ])
+        
         NSLayoutConstraint.activate([
-            overviewLabel.topAnchor.constraint(equalTo: countryLabel.bottomAnchor, constant: 25),
+            playButton.topAnchor.constraint(equalTo: countryLabel.bottomAnchor, constant: 10),
+            playButton.centerXAnchor.constraint(equalTo: cView.centerXAnchor),
+            playButton.widthAnchor.constraint(equalTo: cView.widthAnchor, multiplier: 0.4)
+        ])
+        
+        NSLayoutConstraint.activate([
+            overviewLabel.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 25),
             overviewLabel.leadingAnchor.constraint(equalTo: cView.leadingAnchor, constant: 20),
             overviewLabel.trailingAnchor.constraint(equalTo: cView.trailingAnchor, constant: -20),
             overviewLabel.centerXAnchor.constraint(equalTo: cView.centerXAnchor),
             overviewLabel.bottomAnchor.constraint(equalTo: cView.bottomAnchor)
         ])
-        
-        
     }
     
-    
-    
+    @objc private func playButtonTapped() {
+        print("tapped")
+    }
 }
