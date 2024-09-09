@@ -22,11 +22,13 @@
 		640161E62C43DB1E00BCF9D9 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161E52C43DB1E00BCF9D9 /* UIColor + Extension.swift */; };
 		640161E92C46BEEB00BCF9D9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161E82C46BEEB00BCF9D9 /* Movie.swift */; };
 		640161EB2C46CB4400BCF9D9 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640161EA2C46CB4400BCF9D9 /* Genre.swift */; };
+		6425AD652C8F3A0100FE5C99 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD642C8F3A0100FE5C99 /* Fonts.swift */; };
 		643B4B1F2C557AEA00263186 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643B4B1E2C557AEA00263186 /* CustomLayout.swift */; };
 		643FF2CB2C67925C00DF9452 /* MovieInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FF2C72C67925C00DF9452 /* MovieInfoPresenter.swift */; };
 		643FF2CC2C67925C00DF9452 /* MovieInfoAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FF2C82C67925C00DF9452 /* MovieInfoAssembly.swift */; };
 		643FF2CD2C67925C00DF9452 /* MovieInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FF2C92C67925C00DF9452 /* MovieInfoInteractor.swift */; };
 		643FF2CE2C67925C00DF9452 /* MovieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FF2CA2C67925C00DF9452 /* MovieInfoView.swift */; };
+		6442F2432C85074D00D732FC /* Int + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6442F2422C85074D00D732FC /* Int + Extensions.swift */; };
 		6472C3502C53E83F00834A73 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472C34F2C53E83F00834A73 /* MovieView.swift */; };
 		6472C3542C54DF0000834A73 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472C3532C54DF0000834A73 /* PlayButton.swift */; };
 		6472C3562C551FEB00834A73 /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472C3552C551FEB00834A73 /* UILabel + Extensions.swift */; };
@@ -77,11 +79,13 @@
 		640161E52C43DB1E00BCF9D9 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		640161E82C46BEEB00BCF9D9 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		640161EA2C46CB4400BCF9D9 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		6425AD642C8F3A0100FE5C99 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		643B4B1E2C557AEA00263186 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		643FF2C72C67925C00DF9452 /* MovieInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoPresenter.swift; sourceTree = "<group>"; };
 		643FF2C82C67925C00DF9452 /* MovieInfoAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoAssembly.swift; sourceTree = "<group>"; };
 		643FF2C92C67925C00DF9452 /* MovieInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoInteractor.swift; sourceTree = "<group>"; };
 		643FF2CA2C67925C00DF9452 /* MovieInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoView.swift; sourceTree = "<group>"; };
+		6442F2422C85074D00D732FC /* Int + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int + Extensions.swift"; sourceTree = "<group>"; };
 		6472C34F2C53E83F00834A73 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		6472C3532C54DF0000834A73 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		6472C3552C551FEB00834A73 /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				640161E52C43DB1E00BCF9D9 /* UIColor + Extension.swift */,
 				6472C3552C551FEB00834A73 /* UILabel + Extensions.swift */,
 				643B4B1E2C557AEA00263186 /* CustomLayout.swift */,
+				6442F2422C85074D00D732FC /* Int + Extensions.swift */,
+				6425AD642C8F3A0100FE5C99 /* Fonts.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -428,9 +434,11 @@
 				640161C12C3FEF1400BCF9D9 /* MainScreenInteractor.swift in Sources */,
 				640161D72C3FF5FD00BCF9D9 /* AppAssembly.swift in Sources */,
 				640161CA2C3FF38300BCF9D9 /* TabBarCoordinator.swift in Sources */,
+				6425AD652C8F3A0100FE5C99 /* Fonts.swift in Sources */,
 				640161DC2C428D5C00BCF9D9 /* CustomCell.swift in Sources */,
 				640161E12C42B2BA00BCF9D9 /* Network.swift in Sources */,
 				640161C22C3FEF1400BCF9D9 /* MainScreenView.swift in Sources */,
+				6442F2432C85074D00D732FC /* Int + Extensions.swift in Sources */,
 				6472C3582C55407000834A73 /* HeaderView.swift in Sources */,
 				640161E92C46BEEB00BCF9D9 /* Movie.swift in Sources */,
 			);

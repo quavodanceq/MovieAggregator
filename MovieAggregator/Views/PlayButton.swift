@@ -39,35 +39,34 @@ class PlayButton: UIButton {
     private func setup() {
         setupLabel()
         setupConstraints()
+        addTarget(self, action: #selector(animation), for: .touchUpInside)
     }
     
     private func setupLabel() {
         label.text = "Play"
         label.textColor = .white
-        label.setDynamicFont(baseSize: 20, fontName: "AppleSDGothicNeo-Bold")
+        label.font = UIFont.customFont(.appleSDGothicNeo, .bold, size: 19)
+        label.isUserInteractionEnabled = false
         
         imageV.image = UIImage(systemName: "play.fill")
         imageV.tintColor = .white
         imageV.contentMode = .scaleAspectFill
+        imageV.isUserInteractionEnabled = false
         
         stack.axis = .horizontal
         stack.spacing = 10
         stack.distribution = .fillProportionally
         stack.alignment = .center
+        stack.isUserInteractionEnabled = false
+        stack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stack)
     }
     
     private func setupConstraints() {
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             stack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             stack.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
-        
-        imageV.translatesAutoresizingMaskIntoConstraints = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             imageV.heightAnchor.constraint(equalTo: stack.heightAnchor, multiplier: 1),
         ])
@@ -92,5 +91,20 @@ class PlayButton: UIButton {
             }
             self.layer.insertSublayer(gradientLayer, at: 0)
         }
+    
+    @objc private func animation() {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+            self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            self.label.alpha = 0.5
+            self.imageV.alpha = 0.5
+        }) { _ in
+            UIView.animate(withDuration: 0.1) {
+                self.transform = CGAffineTransform.identity
+                self.label.alpha = 1.0
+                self.imageV.alpha = 1.0
+            }
+        }
+    }
     
 }
