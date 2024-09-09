@@ -8,9 +8,7 @@
 import Foundation
 
 func transformToGenreID(section: Int) -> Int {
-    
     switch section {
-   
     case 0:
         return 33
     case 1:
@@ -29,47 +27,42 @@ func transformToGenreID(section: Int) -> Int {
     default:
         return 0
     }
-    
-    
-    
-    
 }
 
 enum Genre: String {
     
-    
-    case comedy = "Comedy"
     case action = "Action"
+    case adventure = "Adventure"
+    case animation = "Animation"
+    case comedy = "Comedy"
     case crime = "Crime"
+    case documentary = "Documentary"
+    case drama = "Drama"
+    case family = "Family"
+    case fantasy = "Fantasy"
     case history = "History"
-    case war = "War"
-    case thriller = "Thriller"
+    case horror = "Horror"
+    case music = "Music"
+    case mystery = "Mystery"
+    case romance = "Romance"
     case scienceFiction = "Science Fiction"
+    case tvMovie = "TV Movie"
+    case thriller = "Thriller"
+    case war = "War"
+    case western = "Western"
     case popular = "Popular movies"
-    
+    case actionAdventure = "Action & Adventure"
+    case kids = "Kids"
+    case news = "News"
+    case reality = "Reality"
+    case sciFiFantasy = "Sci-Fi & Fantasy"
+    case soap = "Soap"
+    case talk = "Talk"
+    case warPolitics = "War & Politics"
+            
     static func getGenres(by ids: [Int]) -> [Genre]{
         
         var genres: [Genre] = []
-        
-//        Action          28
-//        Adventure       12
-//        Animation       16
-//        Comedy          35
-//        Crime           80
-//        Documentary     99
-//        Drama           18
-//        Family          10751
-//        Fantasy         14
-//        History         36
-//        Horror          27
-//        Music           10402
-//        Mystery         9648
-//        Romance         10749
-//        Science Fiction 878
-//        TV Movie        10770
-//        Thriller        53
-//        War             10752
-//        Western         37
         
         for id in ids {
             switch id {
@@ -89,36 +82,11 @@ enum Genre: String {
                 break
             }
         }
-        
         return genres
-        
     }
     
-    static func getGenre(by section: Int) -> Genre{
-        
-//        Action          28
-//        Adventure       12
-//        Animation       16
-//        Comedy          35
-//        Crime           80
-//        Documentary     99
-//        Drama           18
-//        Family          10751
-//        Fantasy         14
-//        History         36
-//        Horror          27
-//        Music           10402
-//        Mystery         9648
-//        Romance         10749
-//        Science Fiction 878
-//        TV Movie        10770
-//        Thriller        53
-//        War             10752
-//        Western         37
-        
-        
+    static func getGenre(by section: Int) -> Genre {
             switch section {
-            
             case 0:
                 return .popular
             case 1:
@@ -136,14 +104,10 @@ enum Genre: String {
             default:
                 return .action
             }
-        
-        
     }
     
     static func getId(by section: Int) -> Int {
-        
         switch section {
-            
         case 1:
             return 28
         case 2:
@@ -178,7 +142,6 @@ enum Genre: String {
             return 0
         }
     }
-        
 }
 
 extension [Genre] {
@@ -189,10 +152,11 @@ extension [Genre] {
             str.append("\(i.rawValue) ")
         }
         var replaced = str.replacingOccurrences(of: " ", with: ",")
-        replaced.removeLast()
+        if replaced.hasSuffix(",") {
+            replaced.removeLast()
+        }
         return replaced
     }
-    
 }
 
 
