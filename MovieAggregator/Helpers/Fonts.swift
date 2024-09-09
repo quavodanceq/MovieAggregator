@@ -30,4 +30,5 @@ enum FontType: String {
     case semiBold = "-SemiBold"
     case boldItalic = "-BoldItalic"
     case italic = "-Italic"
+    
 }
