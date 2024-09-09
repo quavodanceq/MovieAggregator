@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 
 extension UIFont {
-    func customFont(_ family: FontFamily, _ type: FontType, size: CGFloat) -> UIFont {
-        return UIFont(name: "\(family)\(type)", size: size) ?? UIFont()
+    static func customFont(_ family: FontFamily, _ type: FontType, size: CGFloat) -> UIFont {
+        let font = UIFont(name: "\(family.rawValue)\(type.rawValue)", size: size)!
+        return font
     }
 }
 
@@ -18,6 +19,8 @@ enum FontFamily: String {
     
     case appleSDGothicNeo = "AppleSDGothicNeo"
     case copperplate = "Copperplate"
+    case georgia = "Georgia"
+    case cochin = "Cochin"
 }
 
 enum FontType: String {
@@ -25,4 +28,6 @@ enum FontType: String {
     case bold = "-Bold"
     case regular = "-Regular"
     case semiBold = "-SemiBold"
+    case boldItalic = "-BoldItalic"
+    case italic = "-Italic"
 }

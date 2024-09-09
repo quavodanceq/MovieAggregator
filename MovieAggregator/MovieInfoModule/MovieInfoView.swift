@@ -81,17 +81,18 @@ class MovieInfoView: UIView, MovieInfoViewInput {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 30)
+        label.font = UIFont.customFont(.cochin, .bold, size: 25)
         label.textAlignment = .center
         label.textColor = .white
         label.textAlignment = .center
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var votesLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .center
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -100,7 +101,7 @@ class MovieInfoView: UIView, MovieInfoViewInput {
     
     private lazy var genreLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .gray
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -109,7 +110,7 @@ class MovieInfoView: UIView, MovieInfoViewInput {
     
     private lazy var countryLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .gray
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -118,7 +119,7 @@ class MovieInfoView: UIView, MovieInfoViewInput {
     
     private lazy var overviewLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.font = UIFont.customFont(.appleSDGothicNeo, .bold, size: 17)
         label.textColor = .gray
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -180,8 +181,8 @@ class MovieInfoView: UIView, MovieInfoViewInput {
         ])
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: cView.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: cView.trailingAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: cView.leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: cView.trailingAnchor, constant: -20),
             titleLabel.centerXAnchor.constraint(equalTo: cView.centerXAnchor)
         ])
         
@@ -192,19 +193,19 @@ class MovieInfoView: UIView, MovieInfoViewInput {
             votesLabel.centerXAnchor.constraint(equalTo: cView.centerXAnchor)
         ])
         NSLayoutConstraint.activate([
-            genreLabel.topAnchor.constraint(equalTo: votesLabel.bottomAnchor, constant: 20),
+            genreLabel.topAnchor.constraint(equalTo: votesLabel.bottomAnchor, constant: 10),
             genreLabel.leadingAnchor.constraint(equalTo: cView.leadingAnchor),
             genreLabel.trailingAnchor.constraint(equalTo: cView.trailingAnchor),
             genreLabel.centerXAnchor.constraint(equalTo: cView.centerXAnchor)
         ])
         NSLayoutConstraint.activate([
-            countryLabel.topAnchor.constraint(equalTo: genreLabel.bottomAnchor, constant: 20),
+            countryLabel.topAnchor.constraint(equalTo: genreLabel.bottomAnchor, constant: 10),
             countryLabel.leadingAnchor.constraint(equalTo: cView.leadingAnchor),
             countryLabel.trailingAnchor.constraint(equalTo: cView.trailingAnchor),
             countryLabel.centerXAnchor.constraint(equalTo: cView.centerXAnchor)
         ])
         NSLayoutConstraint.activate([
-            overviewLabel.topAnchor.constraint(equalTo: countryLabel.bottomAnchor, constant: 40),
+            overviewLabel.topAnchor.constraint(equalTo: countryLabel.bottomAnchor, constant: 25),
             overviewLabel.leadingAnchor.constraint(equalTo: cView.leadingAnchor, constant: 20),
             overviewLabel.trailingAnchor.constraint(equalTo: cView.trailingAnchor, constant: -20),
             overviewLabel.centerXAnchor.constraint(equalTo: cView.centerXAnchor),
