@@ -14,12 +14,17 @@ class MovieInfoCoordinator: Coordinator <Movie, Void> {
     
     private let moduleAssembly: () -> UIViewController & MovieInfoPresenterInput
     
+    private let playerCoordinatorAssembly: (_ root: UIViewController) -> Coordinator<Void, Void>
+    
+    private var playerCoordinator: Coordinator<Void, Void>?
+    
     private let initialController: UIViewController
     
     var movie: Movie?
     
-    init(moduleAssembly: @escaping () -> UIViewController & MovieInfoPresenterInput, initialController: UIViewController) {
+    init(moduleAssembly: @escaping () -> UIViewController & MovieInfoPresenterInput,initialController: UIViewController, playerCoordinatorAssembly: @escaping (_ root: UIViewController) -> Coordinator<Void, Void>) {
         self.moduleAssembly = moduleAssembly
+        self.playerCoordinatorAssembly = playerCoordinatorAssembly
         self.initialController = initialController
     }
     
@@ -33,10 +38,17 @@ class MovieInfoCoordinator: Coordinator <Movie, Void> {
     
     
     
+    
+    
 }
 
 extension MovieInfoCoordinator: MovieInfoPresenterOutput {
     
-    
+    func presentPlayer() {
+        guard let root = module else { return }
+        let coordinator = playerCoordinatorAssembly(root)
+        self.playerCoordinator = coordinator
+        coordinator.start()
+    }
     
 }

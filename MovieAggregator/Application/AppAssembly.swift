@@ -14,7 +14,9 @@ class AppAssembly {
         
         MainTabBarCoordinator(window: window) {
             MainScreenCoordinator(moduleAssembly: MainScreenAssembly.assembly, movieInfoCoordinatorAssembly: { root in
-                return MovieInfoCoordinator(moduleAssembly: MovieInfoAssembly.assembly, initialController: root)
+                return MovieInfoCoordinator(moduleAssembly: MovieInfoAssembly.assembly, initialController: root, playerCoordinatorAssembly: { root in
+                    return PlayerCoordinator(moduleAssembly: PlayerAssembly.assembly, initialController: root)
+                })
             })
         }
         

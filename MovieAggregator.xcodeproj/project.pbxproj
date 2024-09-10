@@ -27,6 +27,7 @@
 		6425AD742C9069D100FE5C99 /* PlayerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD702C9069D100FE5C99 /* PlayerAssembly.swift */; };
 		6425AD752C9069D100FE5C99 /* PlayerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD712C9069D100FE5C99 /* PlayerInteractor.swift */; };
 		6425AD762C9069D100FE5C99 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD722C9069D100FE5C99 /* PlayerView.swift */; };
+		6425AD782C906ABD00FE5C99 /* PlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD772C906ABD00FE5C99 /* PlayerCoordinator.swift */; };
 		643B4B1F2C557AEA00263186 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643B4B1E2C557AEA00263186 /* CustomLayout.swift */; };
 		643FF2CB2C67925C00DF9452 /* MovieInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FF2C72C67925C00DF9452 /* MovieInfoPresenter.swift */; };
 		643FF2CC2C67925C00DF9452 /* MovieInfoAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FF2C82C67925C00DF9452 /* MovieInfoAssembly.swift */; };
@@ -88,6 +89,7 @@
 		6425AD702C9069D100FE5C99 /* PlayerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAssembly.swift; sourceTree = "<group>"; };
 		6425AD712C9069D100FE5C99 /* PlayerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInteractor.swift; sourceTree = "<group>"; };
 		6425AD722C9069D100FE5C99 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		6425AD772C906ABD00FE5C99 /* PlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCoordinator.swift; sourceTree = "<group>"; };
 		643B4B1E2C557AEA00263186 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		643FF2C72C67925C00DF9452 /* MovieInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoPresenter.swift; sourceTree = "<group>"; };
 		643FF2C82C67925C00DF9452 /* MovieInfoAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoAssembly.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				640161C92C3FF38300BCF9D9 /* TabBarCoordinator.swift */,
 				640161C72C3FF18E00BCF9D9 /* MainScreenCoordinator.swift */,
 				64FEB23C2C7380F000A65171 /* MovieInfoCoordinator.swift */,
+				6425AD772C906ABD00FE5C99 /* PlayerCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				640161E42C43DB0C00BCF9D9 /* CGFloat + Extension.swift in Sources */,
 				640161C62C3FEFF300BCF9D9 /* Coordinator.swift in Sources */,
 				647D46D02C3EB4B300071705 /* AppDelegate.swift in Sources */,
+				6425AD782C906ABD00FE5C99 /* PlayerCoordinator.swift in Sources */,
 				640161DA2C428C5800BCF9D9 /* CustomTableViewCell.swift in Sources */,
 				647D46D22C3EB4B300071705 /* SceneDelegate.swift in Sources */,
 				643FF2CB2C67925C00DF9452 /* MovieInfoPresenter.swift in Sources */,

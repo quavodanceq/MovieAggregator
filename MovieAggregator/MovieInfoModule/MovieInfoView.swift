@@ -10,6 +10,8 @@ import UIKit
 
 protocol MovieInfoViewOutput: AnyObject {
     
+    func playButtonTapped()
+    
 }
 
 protocol MovieInfoViewInput {
@@ -229,6 +231,6 @@ class MovieInfoView: UIView, MovieInfoViewInput {
     }
     
     @objc private func playButtonTapped() {
-        print("tapped")
+        output?.playButtonTapped()
     }
 }

@@ -18,6 +18,8 @@ protocol MovieInfoPresenterInput {
 
 protocol MovieInfoPresenterOutput: AnyObject {
     
+    func presentPlayer()
+    
 }
 
 class MovieInfoPresenter: UIViewController, MovieInfoPresenterInput {
@@ -52,6 +54,11 @@ class MovieInfoPresenter: UIViewController, MovieInfoPresenterInput {
 }
 
 extension MovieInfoPresenter: MovieInfoViewOutput {
+    
+    func playButtonTapped() {
+        output?.presentPlayer()
+    }
+    
     
 }
 
