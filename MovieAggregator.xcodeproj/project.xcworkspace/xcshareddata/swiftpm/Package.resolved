@@ -1,5 +1,5 @@
 {
-  "originHash" : "dfe4f37722f706002352f4ac958cc8dc817b1ab28aebf953a6f6dd9b57c4ac40",
+  "originHash" : "16ec6c44e455bae3314f209e378db5afa15b780850ed41a44ddd180cf3ed0f41",
   "pins" : [
     {
       "identity" : "sdwebimage",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "be0bcd7823ce56629948491f2eaeaa19979514f7",
         "version" : "5.19.4"
+      }
+    },
+    {
+      "identity" : "youtubeplayer-in-wkwebview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hmhv/YoutubePlayer-in-WKWebView.git",
+      "state" : {
+        "revision" : "3d24743643fd4460e40ca8f4cd844563d32bb05f",
+        "version" : "0.3.11"
       }
     }
   ],

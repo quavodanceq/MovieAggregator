@@ -28,6 +28,8 @@
 		6425AD752C9069D100FE5C99 /* PlayerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD712C9069D100FE5C99 /* PlayerInteractor.swift */; };
 		6425AD762C9069D100FE5C99 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD722C9069D100FE5C99 /* PlayerView.swift */; };
 		6425AD782C906ABD00FE5C99 /* PlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD772C906ABD00FE5C99 /* PlayerCoordinator.swift */; };
+		6425AD7D2C93170700FE5C99 /* YoutubePlayer-in-WKWebView in Frameworks */ = {isa = PBXBuildFile; productRef = 6425AD7C2C93170700FE5C99 /* YoutubePlayer-in-WKWebView */; };
+		6425AD7F2C93251D00FE5C99 /* trailer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6425AD7E2C93244400FE5C99 /* trailer.mp4 */; };
 		643B4B1F2C557AEA00263186 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643B4B1E2C557AEA00263186 /* CustomLayout.swift */; };
 		643FF2CB2C67925C00DF9452 /* MovieInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FF2C72C67925C00DF9452 /* MovieInfoPresenter.swift */; };
 		643FF2CC2C67925C00DF9452 /* MovieInfoAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FF2C82C67925C00DF9452 /* MovieInfoAssembly.swift */; };
@@ -90,6 +92,7 @@
 		6425AD712C9069D100FE5C99 /* PlayerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInteractor.swift; sourceTree = "<group>"; };
 		6425AD722C9069D100FE5C99 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		6425AD772C906ABD00FE5C99 /* PlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCoordinator.swift; sourceTree = "<group>"; };
+		6425AD7E2C93244400FE5C99 /* trailer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = trailer.mp4; sourceTree = "<group>"; };
 		643B4B1E2C557AEA00263186 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		643FF2C72C67925C00DF9452 /* MovieInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoPresenter.swift; sourceTree = "<group>"; };
 		643FF2C82C67925C00DF9452 /* MovieInfoAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoAssembly.swift; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6425AD7D2C93170700FE5C99 /* YoutubePlayer-in-WKWebView in Frameworks */,
 				64C7F6112C4BD8A700491241 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +267,7 @@
 				640161C42C3FEFDE00BCF9D9 /* Coordinators */,
 				640161D82C428C3500BCF9D9 /* Views */,
 				647D46D82C3EB4B500071705 /* Assets.xcassets */,
+				6425AD7E2C93244400FE5C99 /* trailer.mp4 */,
 				647D46DA2C3EB4B500071705 /* LaunchScreen.storyboard */,
 				647D46DD2C3EB4B500071705 /* Info.plist */,
 			);
@@ -315,6 +320,7 @@
 			name = MovieAggregator;
 			packageProductDependencies = (
 				64C7F6102C4BD8A700491241 /* SDWebImage */,
+				6425AD7C2C93170700FE5C99 /* YoutubePlayer-in-WKWebView */,
 			);
 			productName = MovieAggregator;
 			productReference = 647D46CC2C3EB4B300071705 /* MovieAggregator.app */;
@@ -390,6 +396,7 @@
 			mainGroup = 647D46C32C3EB4B300071705;
 			packageReferences = (
 				64C7F60F2C4BD8A700491241 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				6425AD7B2C93170700FE5C99 /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView" */,
 			);
 			productRefGroup = 647D46CD2C3EB4B300071705 /* Products */;
 			projectDirPath = "";
@@ -409,6 +416,7 @@
 			files = (
 				647D46D92C3EB4B500071705 /* Assets.xcassets in Resources */,
 				647D46DC2C3EB4B500071705 /* Base in Resources */,
+				6425AD7F2C93251D00FE5C99 /* trailer.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +815,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6425AD7B2C93170700FE5C99 /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmhv/YoutubePlayer-in-WKWebView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.11;
+			};
+		};
 		64C7F60F2C4BD8A700491241 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
@@ -818,6 +834,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6425AD7C2C93170700FE5C99 /* YoutubePlayer-in-WKWebView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6425AD7B2C93170700FE5C99 /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView" */;
+			productName = "YoutubePlayer-in-WKWebView";
+		};
 		64C7F6102C4BD8A700491241 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 64C7F60F2C4BD8A700491241 /* XCRemoteSwiftPackageReference "SDWebImage" */;

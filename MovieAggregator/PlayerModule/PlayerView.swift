@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import AVKit
 
 protocol PlayerViewOutput: AnyObject {
     
@@ -30,6 +31,13 @@ class PlayerView: UIView, PlayerViewInput {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    private func setup() {
+        backgroundColor = .red
+        let url = Bundle.main.url(forResource: "trailer", withExtension: "mp4")
+        let player = AVPlayer(url: url!)
+        let controller = AVPlayerViewController()
+        controller.player = player
+        player.play()
+    }
     
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import AVKit
 
 protocol PlayerPresenterInput {
     
@@ -18,7 +19,7 @@ protocol PlayerPresenterOutput: AnyObject {
     
 }
 
-class PlayerPresenter: UIViewController, PlayerPresenterInput {
+class PlayerPresenter: AVPlayerViewController, PlayerPresenterInput {
     
     weak var output: PlayerPresenterOutput?
     
@@ -32,10 +33,12 @@ class PlayerPresenter: UIViewController, PlayerPresenterInput {
         super.init(nibName: nil, bundle: nil)
     }
     
-    override func loadView() {
-        view = viewRef
-        viewRef.output = self
-       
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let url = Bundle.main.url(forResource: "trailer", withExtension: "mp4")
+        let player = AVPlayer(url: url!)
+        self.player = player
+        player.play()
     }
     
     required init?(coder: NSCoder) {
