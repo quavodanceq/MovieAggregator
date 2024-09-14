@@ -18,8 +18,10 @@ class AppAssembly {
                     return PlayerCoordinator(moduleAssembly: PlayerAssembly.assembly, initialController: root)
                 })
             })
+        } bookmarkCoordinatorAssembly: {
+            return BookmarksCoordinator(moduleAssembly: BookmarksAssembly.assembly)
         }
-        
     }
-    
 }
+
+
