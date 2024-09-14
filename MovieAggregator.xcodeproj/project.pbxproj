@@ -30,6 +30,10 @@
 		6425AD782C906ABD00FE5C99 /* PlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD772C906ABD00FE5C99 /* PlayerCoordinator.swift */; };
 		6425AD7D2C93170700FE5C99 /* YoutubePlayer-in-WKWebView in Frameworks */ = {isa = PBXBuildFile; productRef = 6425AD7C2C93170700FE5C99 /* YoutubePlayer-in-WKWebView */; };
 		6425AD7F2C93251D00FE5C99 /* trailer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6425AD7E2C93244400FE5C99 /* trailer.mp4 */; };
+		6425AD852C955D9100FE5C99 /* BookmarksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD812C955D9100FE5C99 /* BookmarksPresenter.swift */; };
+		6425AD862C955D9100FE5C99 /* BookmarksAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD822C955D9100FE5C99 /* BookmarksAssembly.swift */; };
+		6425AD872C955D9100FE5C99 /* BookmarksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD832C955D9100FE5C99 /* BookmarksInteractor.swift */; };
+		6425AD882C955D9100FE5C99 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD842C955D9100FE5C99 /* BookmarksView.swift */; };
 		643B4B1F2C557AEA00263186 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643B4B1E2C557AEA00263186 /* CustomLayout.swift */; };
 		643FF2CB2C67925C00DF9452 /* MovieInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FF2C72C67925C00DF9452 /* MovieInfoPresenter.swift */; };
 		643FF2CC2C67925C00DF9452 /* MovieInfoAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FF2C82C67925C00DF9452 /* MovieInfoAssembly.swift */; };
@@ -93,6 +97,10 @@
 		6425AD722C9069D100FE5C99 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		6425AD772C906ABD00FE5C99 /* PlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCoordinator.swift; sourceTree = "<group>"; };
 		6425AD7E2C93244400FE5C99 /* trailer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = trailer.mp4; sourceTree = "<group>"; };
+		6425AD812C955D9100FE5C99 /* BookmarksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksPresenter.swift; sourceTree = "<group>"; };
+		6425AD822C955D9100FE5C99 /* BookmarksAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksAssembly.swift; sourceTree = "<group>"; };
+		6425AD832C955D9100FE5C99 /* BookmarksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksInteractor.swift; sourceTree = "<group>"; };
+		6425AD842C955D9100FE5C99 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
 		643B4B1E2C557AEA00263186 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		643FF2C72C67925C00DF9452 /* MovieInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoPresenter.swift; sourceTree = "<group>"; };
 		643FF2C82C67925C00DF9452 /* MovieInfoAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoAssembly.swift; sourceTree = "<group>"; };
@@ -223,6 +231,17 @@
 			path = PlayerModule;
 			sourceTree = "<group>";
 		};
+		6425AD802C955D5B00FE5C99 /* BookmarksModule */ = {
+			isa = PBXGroup;
+			children = (
+				6425AD812C955D9100FE5C99 /* BookmarksPresenter.swift */,
+				6425AD822C955D9100FE5C99 /* BookmarksAssembly.swift */,
+				6425AD832C955D9100FE5C99 /* BookmarksInteractor.swift */,
+				6425AD842C955D9100FE5C99 /* BookmarksView.swift */,
+			);
+			path = BookmarksModule;
+			sourceTree = "<group>";
+		};
 		643FF2C62C67921C00DF9452 /* MovieInfoModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +282,7 @@
 				640161E72C46BED100BCF9D9 /* Entities */,
 				647D46FF2C3EB5A800071705 /* MainModule */,
 				643FF2C62C67921C00DF9452 /* MovieInfoModule */,
+				6425AD802C955D5B00FE5C99 /* BookmarksModule */,
 				6425AD662C90697C00FE5C99 /* PlayerModule */,
 				640161C42C3FEFDE00BCF9D9 /* Coordinators */,
 				640161D82C428C3500BCF9D9 /* Views */,
@@ -464,6 +484,10 @@
 				640161E62C43DB1E00BCF9D9 /* UIColor + Extension.swift in Sources */,
 				64C7F6132C4BDAB700491241 /* Endpoint.swift in Sources */,
 				640161C12C3FEF1400BCF9D9 /* MainScreenInteractor.swift in Sources */,
+				6425AD852C955D9100FE5C99 /* BookmarksPresenter.swift in Sources */,
+				6425AD862C955D9100FE5C99 /* BookmarksAssembly.swift in Sources */,
+				6425AD872C955D9100FE5C99 /* BookmarksInteractor.swift in Sources */,
+				6425AD882C955D9100FE5C99 /* BookmarksView.swift in Sources */,
 				640161D72C3FF5FD00BCF9D9 /* AppAssembly.swift in Sources */,
 				640161CA2C3FF38300BCF9D9 /* TabBarCoordinator.swift in Sources */,
 				6425AD652C8F3A0100FE5C99 /* Fonts.swift in Sources */,
