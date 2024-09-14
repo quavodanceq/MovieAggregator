@@ -35,6 +35,8 @@
 		6425AD872C955D9100FE5C99 /* BookmarksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD832C955D9100FE5C99 /* BookmarksInteractor.swift */; };
 		6425AD882C955D9100FE5C99 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD842C955D9100FE5C99 /* BookmarksView.swift */; };
 		6425AD8A2C95604E00FE5C99 /* BookmarksCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD892C95604E00FE5C99 /* BookmarksCoordinator.swift */; };
+		6425AD8C2C95DB9E00FE5C99 /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD8B2C95DB9E00FE5C99 /* Bookmarks.swift */; };
+		6425AD8E2C95DC2B00FE5C99 /* BookmarksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6425AD8D2C95DC2B00FE5C99 /* BookmarksManager.swift */; };
 		643B4B1F2C557AEA00263186 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643B4B1E2C557AEA00263186 /* CustomLayout.swift */; };
 		643FF2CB2C67925C00DF9452 /* MovieInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FF2C72C67925C00DF9452 /* MovieInfoPresenter.swift */; };
 		643FF2CC2C67925C00DF9452 /* MovieInfoAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FF2C82C67925C00DF9452 /* MovieInfoAssembly.swift */; };
@@ -103,6 +105,8 @@
 		6425AD832C955D9100FE5C99 /* BookmarksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksInteractor.swift; sourceTree = "<group>"; };
 		6425AD842C955D9100FE5C99 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
 		6425AD892C95604E00FE5C99 /* BookmarksCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCoordinator.swift; sourceTree = "<group>"; };
+		6425AD8B2C95DB9E00FE5C99 /* Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
+		6425AD8D2C95DC2B00FE5C99 /* BookmarksManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksManager.swift; sourceTree = "<group>"; };
 		643B4B1E2C557AEA00263186 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		643FF2C72C67925C00DF9452 /* MovieInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoPresenter.swift; sourceTree = "<group>"; };
 		643FF2C82C67925C00DF9452 /* MovieInfoAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoAssembly.swift; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 				643B4B1E2C557AEA00263186 /* CustomLayout.swift */,
 				6442F2422C85074D00D732FC /* Int + Extensions.swift */,
 				6425AD642C8F3A0100FE5C99 /* Fonts.swift */,
+				6425AD8B2C95DB9E00FE5C99 /* Bookmarks.swift */,
+				6425AD8D2C95DC2B00FE5C99 /* BookmarksManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -493,8 +499,10 @@
 				6425AD872C955D9100FE5C99 /* BookmarksInteractor.swift in Sources */,
 				6425AD882C955D9100FE5C99 /* BookmarksView.swift in Sources */,
 				640161D72C3FF5FD00BCF9D9 /* AppAssembly.swift in Sources */,
+				6425AD8C2C95DB9E00FE5C99 /* Bookmarks.swift in Sources */,
 				640161CA2C3FF38300BCF9D9 /* TabBarCoordinator.swift in Sources */,
 				6425AD652C8F3A0100FE5C99 /* Fonts.swift in Sources */,
+				6425AD8E2C95DC2B00FE5C99 /* BookmarksManager.swift in Sources */,
 				640161DC2C428D5C00BCF9D9 /* CustomCell.swift in Sources */,
 				640161E12C42B2BA00BCF9D9 /* Network.swift in Sources */,
 				640161C22C3FEF1400BCF9D9 /* MainScreenView.swift in Sources */,
