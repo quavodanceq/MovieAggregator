@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol BookmarksViewOutput: AnyObject {
     
@@ -24,14 +25,34 @@ class BookmarksView: UIView, BookmarksViewInput {
     
     private var collectionView: UICollectionView!
     
+    private var cancellable: Set<AnyCancellable> = []
+    
     private var movies: [Movie] = []
     
     init() {
         super.init(frame: .zero)
+        setupCollectionView()
+        setupConstraints()
+        setupPublisher()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupPublisher() {
+        
+        UserDefaults.standard.publisher(for: \.observableProductsData)
+            .map{ data -> [Movie] in
+                guard let data = data else { return [] }
+                return (try? JSONDecoder().decode([Movie].self, from: data)) ?? []
+            }.sink { movies in
+                
+                self.movies = movies
+                print(movies)
+                self.collectionView.reloadData()
+            }.store(in: &cancellable)
+        
     }
     
     private func setupCollectionView() {
@@ -43,7 +64,18 @@ class BookmarksView: UIView, BookmarksViewInput {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .red
         addSubview(collectionView)
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+        ])
     }
     
 }
@@ -58,11 +90,12 @@ extension BookmarksView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         cell.setup(movies[indexPath.row])
+        cell.backgroundColor = .yellow
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = (collectionView.frame.width / 2)
+        let size = (collectionView.frame.width)
         return CGSize(width: size, height: size * 1.2 )
     }
     

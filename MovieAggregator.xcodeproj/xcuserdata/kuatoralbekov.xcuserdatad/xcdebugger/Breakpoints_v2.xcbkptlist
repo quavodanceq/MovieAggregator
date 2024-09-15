@@ -1092,5 +1092,67 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "58317B30-2EBE-477A-AD6B-7ECC6089FB84"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieAggregator/BookmarksModule/BookmarksView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EFD643F5-D37F-416D-BD7D-73A629406B08"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieAggregator/BookmarksModule/BookmarksView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EFD643F5-D37F-416D-BD7D-73A629406B08 - 97ec8b0ab3684827"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MovieAggregator.BookmarksView.__allocating_init() -&gt; MovieAggregator.BookmarksView"
+                  moduleName = "MovieAggregator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kuatoralbekov/Desktop/MovieAggregator/MovieAggregator/BookmarksModule/BookmarksView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "EFD643F5-D37F-416D-BD7D-73A629406B08 - 69547faeb2abc7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MovieAggregator.BookmarksView.init() -&gt; MovieAggregator.BookmarksView"
+                  moduleName = "MovieAggregator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kuatoralbekov/Desktop/MovieAggregator/MovieAggregator/BookmarksModule/BookmarksView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
