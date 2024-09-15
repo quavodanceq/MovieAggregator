@@ -15,12 +15,12 @@ class BookmarksManager {
     
     let userDefaults = UserDefaults.standard
 
-    func addToCart(_ movie: Movie) {
+    func add(_ movie: Movie) {
         
         userDefaults.movies.append(movie)
     }
 
-    func removeFromCart(_ movie: Movie) {
+    func remove(_ movie: Movie) {
         
         let movies = userDefaults.movies
         guard let index = movies.firstIndex(of: movie) else {return}

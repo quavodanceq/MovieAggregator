@@ -261,6 +261,6 @@ class MovieInfoView: UIView, MovieInfoViewInput {
     }
     
     @objc private func bookmarkButtonTapped() {
-        output?.playButtonTapped()
+        BookmarksManager.shared.add(movie!)
     }
 }
