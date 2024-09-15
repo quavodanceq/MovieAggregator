@@ -126,6 +126,26 @@ class MovieInfoView: UIView, MovieInfoViewInput {
         return playButton
     }()
     
+    private lazy var bookmarkButton: UIButton = {
+        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular)
+        var config = UIButton.Configuration.plain()
+        config.imagePlacement = .top
+        config.imagePadding = 10
+        config.baseForegroundColor = .white
+        config.titleAlignment = .center
+        let button = UIButton(configuration: config)
+        let image = UIImage(systemName: "bookmark", withConfiguration: symbolConfig)
+        button.setImage(image, for: .normal)
+        button.setTitle("Watch later", for: .normal)
+        button.titleLabel?.textAlignment = .center
+        button.tintColor = .white
+        button.imageView?.contentMode = .scaleAspectFit
+        let spacing: CGFloat = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var overviewLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.customFont(.appleSDGothicNeo, .bold, size: 17)
@@ -157,6 +177,7 @@ class MovieInfoView: UIView, MovieInfoViewInput {
         scrollView.addSubview(genreLabel)
         scrollView.addSubview(countryLabel)
         scrollView.addSubview(playButton)
+        scrollView.addSubview(bookmarkButton)
         scrollView.addSubview(overviewLabel)
     }
     
@@ -222,7 +243,12 @@ class MovieInfoView: UIView, MovieInfoViewInput {
         ])
         
         NSLayoutConstraint.activate([
-            overviewLabel.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 25),
+            bookmarkButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 10),
+            bookmarkButton.centerXAnchor.constraint(equalTo: cView.centerXAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            overviewLabel.topAnchor.constraint(equalTo: bookmarkButton.bottomAnchor, constant: 15),
             overviewLabel.leadingAnchor.constraint(equalTo: cView.leadingAnchor, constant: 20),
             overviewLabel.trailingAnchor.constraint(equalTo: cView.trailingAnchor, constant: -20),
             overviewLabel.centerXAnchor.constraint(equalTo: cView.centerXAnchor),
@@ -231,6 +257,10 @@ class MovieInfoView: UIView, MovieInfoViewInput {
     }
     
     @objc private func playButtonTapped() {
+        output?.playButtonTapped()
+    }
+    
+    @objc private func bookmarkButtonTapped() {
         output?.playButtonTapped()
     }
 }
